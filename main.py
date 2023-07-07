@@ -8,11 +8,14 @@ serverPort = 8080
 
 class MyServer(BaseHTTPRequestHandler):
     """
-        Специальный класс, который отвечает за
-        обработку входящих запросов от клиентов
+    Специальный класс, который отвечает за
+    обработку входящих запросов от клиентов
     """
     @staticmethod
     def __get_contacts():
+        """
+        Получение скрипта с удаленного репозитория
+        """
         contacts = requests.get("https://raw.githubusercontent.com/dipnoe/web_basics/main/index(contacts).html",
                                 stream=True, allow_redirects=True)
         return contacts.text
